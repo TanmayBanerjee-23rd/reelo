@@ -21,97 +21,97 @@ reeloChallengeSolution
    2. METHOD: "GET"
    3. Query Parameters: "query parameters :: marks: int!, matchCriterion: string! < difficulty | topic | subject >, [matchCriterion]Criterions: Object { matchCriterionValue1:  string, matchCriterionValue2: string,    ... }!, groupBy: string < difficulty | topic | subject > (optional)",
    4. Description: matchCriterion is for filtering the resuts and groupBy is to derrive percentage for a second criterion on filtered results.
-   5. Example URL's and their respective response structures:
-    1. http://localhost:4000/questions/filtered?marks=100&matchCriterion=difficulty&difficultyCriterions={"easy":20,"medium":50,"hard":30} {
-        success: true,
-        data: {
-            easy: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            medium: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            hard: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            }
+# Example URL's and their respective response structures:
+1.  http://localhost:4000/questions/filtered?marks=100&matchCriterion=difficulty&difficultyCriterions={"easy":20,"medium":50,"hard":30} {
+    success: true,
+    data: {
+        easy: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
         },
-        errorMessage: "" #always remains empty where success is equal to true
+        medium: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
+        },
+        hard: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
+        }
     },
-    2. http://localhost:4000/questions/filtered?marks=100&matchCriterion=difficulty&difficultyCriterions={"easy":20,"medium":50} {
-        success: true,
-        data: {
-            easy: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            medium: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            }
+    errorMessage: "" #always remains empty where success is equal to true
+},
+2. http://localhost:4000/questions/filtered?marks=100&matchCriterion=difficulty&difficultyCriterions={"easy":20,"medium":50} {
+    success: true,
+    data: {
+        easy: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
         },
-        errorMessage: "" #always remains empty where success is equal to true
-    },,
-    3. http://localhost:4000/questions/filtered?marks=100&matchCriterion=difficulty&difficultyCriterions={"easy":20,"medium":50,"hard":30}&groupBy=topic {
-        success: true,
-        data: {
-            easy: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            medium: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            hard: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            groupBy: {
-                "topic1": {
-                    count: number,
-                    percentage: number
-                },
-                "topic2": {
-                    count: number,
-                    percentage: number
-                },
-                ...
-            }
-        },
-        errorMessage: "" #always remains empty where success is equal to true
+        medium: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
+        }
     },
-    4. http://localhost:4000/questions/filtered?marks=100&matchCriterion=subject&subjectCriterions={"physics":20,"maths":50,"chemistry":30}&groupBy=difficulty "topic1": {
-        success: true,
-        data: {
-            physics: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            chemistry: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            maths: {
-                questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
-                count: number
-            },
-            groupBy: {
-                "easy": {
-                    count: number,
-                    percentage: number
-                },
-                "hard": {
-                    count: number,
-                    percentage: number
-                },
-                ...
-            }
+    errorMessage: "" #always remains empty where success is equal to true
+},
+3. http://localhost:4000/questions/filtered?marks=100&matchCriterion=difficulty&difficultyCriterions={"easy":20,"medium":50,"hard":30}&groupBy=topic {
+    success: true,
+    data: {
+        easy: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
         },
-        errorMessage: "" #always remains empty where success is equal to true
+        medium: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
+        },
+        hard: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
+        },
+        groupBy: {
+            "topic1": {
+                count: number,
+                percentage: number
+            },
+            "topic2": {
+                count: number,
+                percentage: number
+            },
+            ...
+        }
     },
+    errorMessage: "" #always remains empty where success is equal to true
+},
+4. http://localhost:4000/questions/filtered?marks=100&matchCriterion=subject&subjectCriterions={"physics":20,"maths":50,"chemistry":30}&groupBy=difficulty "topic1": {
+    success: true,
+    data: {
+        physics: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
+        },
+        chemistry: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
+        },
+        maths: {
+            questions: [ {question: "", subject: "", topic: "", difficulty: "", marks: "" }, {...}, ...],
+            count: number
+        },
+        groupBy: {
+            "easy": {
+                count: number,
+                percentage: number
+            },
+            "hard": {
+                count: number,
+                percentage: number
+            },
+            ...
+        }
+    },
+    errorMessage: "" #always remains empty where success is equal to true
+},
 
 # Any Error will have a response structure as : 
     {
