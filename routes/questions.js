@@ -15,7 +15,7 @@ router.get( "/filtered", ( req, res ) => {
 
     /*
     query parameters :: marks: int!, matchCriterion: string!, [matchCriterion]Criterions: Object { matchCriterionValue1: string, matchCriterionValue2: string, ... }!,
-    groupBy: string (may or)?
+    groupBy: string (optional)
     */
     controler.getfilteredQuestions( req.query )
     .then( results => res.status( 200 ).send( {
@@ -30,7 +30,7 @@ router.get( "/filtered", ( req, res ) => {
 
         res.send( {
             success: false,
-            data: [],
+            data: {},
             errorMessage: err.message
         } );
     } );
