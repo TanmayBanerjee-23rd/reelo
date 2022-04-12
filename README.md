@@ -17,11 +17,11 @@ reeloChallengeSolution
 4. Run "npm start"
 
 # Endpoint details:
-   URL: "http://localhost:4000/questions/filtered",
-   METHOD: "GET"
-   Query Parameters: "query parameters :: marks: int!, matchCriterion: string! < difficulty | topic | subject >, [matchCriterion]Criterions: Object { matchCriterionValue1: string, matchCriterionValue2: string,    ... }!, groupBy: string < difficulty | topic | subject > (optional)",
-   Description: matchCriterion is for filtering the resuts and groupBy is to derrive percentage for a second criterion on filtered results.
-   Example URL's and their respective response structures:
+   1. URL: "http://localhost:4000/questions/filtered",
+   2. METHOD: "GET"
+   3. Query Parameters: "query parameters :: marks: int!, matchCriterion: string! < difficulty | topic | subject >, [matchCriterion]Criterions: Object { matchCriterionValue1:  string, matchCriterionValue2: string,    ... }!, groupBy: string < difficulty | topic | subject > (optional)",
+   4. Description: matchCriterion is for filtering the resuts and groupBy is to derrive percentage for a second criterion on filtered results.
+   5. Example URL's and their respective response structures:
     1. http://localhost:4000/questions/filtered?marks=100&matchCriterion=difficulty&difficultyCriterions={"easy":20,"medium":50,"hard":30} {
         success: true,
         data: {
@@ -114,8 +114,8 @@ reeloChallengeSolution
     },
 
 # Any Error will have a response structure as : 
-{
-    success: false,
-    data: {},
-    errorMessage: "cause of error"
-}
+    {
+        success: false,
+        data: {},
+        errorMessage: "cause of error"
+    }
